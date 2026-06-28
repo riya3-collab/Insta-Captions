@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insta Captions 95LPA | Trupti</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;500;700&display=swap');
+        body {
+            background: #1a0a1f; color: #fff; font-family: 'Poppins', sans-serif;
+            margin: 0; padding: 20px; min-height: 100vh;
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #a18cd1, #fbc2eb);
+            background-size: 400% 400%; animation: gradient 12s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+   .glass {
+            background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 28px; padding: 30px;
+            box-shadow: 0 8px 32px 0 rgba(161, 140, 209, 0.4);
+            max-width: 550px; margin: 20px auto;
+        }
+        h1 {
+            text-align: center; font-family: 'Playfair Display', serif; font-size: 34px;
+            background: linear-gradient(90deg, #ff71ce, #c084fc, #a855f7);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(255,113,206,0.4);
+        }
+      .neon-pink { color: #ff71ce; text-shadow: 0 0 10px #ff71ce; }
+      .category-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 15px 0; }
+      .vibe-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 15px 0; }
+      .btn {
+            background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white; padding: 12px; border-radius: 18px; font-family: 'Poppins';
+            cursor: pointer; transition: all 0.3s ease; font-weight: 500; font-size: 14px;
+        }
+      .btn:hover,.btn.active {
+            background: linear-gradient(135deg, rgba(255, 113, 206, 0.4), rgba(168, 85, 247, 0.4));
+            transform: translateY(-2px); box-shadow: 0 0 20px rgba(255, 113, 206, 0.7);
+            border-color: #ff71ce;
+        }
+        #output {
+            background: rgba(0, 0, 0, 0.2); border-radius: 20px; padding: 25px;
+            margin-top: 20px; min-height: 120px; font-size: 16px; line-height: 1.7;
+            border: 1px dashed rgba(255, 255, 255, 0.3);
+        }
+        #copy-btn {
+            background: linear-gradient(90deg, #ff71ce, #a855f7, #c084fc); border: none; color: white;
+            padding: 16px 28px; border-radius: 50px; font-family: 'Poppins';
+            cursor: pointer; font-weight: 700; width: 100%; margin-top: 15px;
+            display: none; transition: all 0.3s ease; font-size: 15px;
+        }
+        #copy-btn:hover { transform: scale(1.03); box-shadow: 0 0 30px #ff71ce; }
+      .hashtag { color: #f9a8d4; font-weight: 500; }
+        #toast {
+            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+            background: linear-gradient(90deg, #ff71ce, #a855f7); color: white; padding: 14px 28px;
+            border-radius: 50px; display: none; font-weight: 600; box-shadow: 0 0 20px rgba(255,113,206,0.6);
+        }
+      .label { font-weight: 700; color: #fbcfe8; margin-top: 15px; display: block; }
+    </style>
+</head>
+<body>
+    <div class="glass">
+        <h1>INSTA CAPTIONS <span class="neon-pink">95LPA</span></h1>
+        <p style="text-align:center;">// Pink Lavender AI + Love + Nature + Aesthetic | Gen-Z Viral //</p>
+
+        <span class="label">1. Select Category:</span>
+        <div class="category-grid">
+            <button class="btn category-btn active" data-cat="love">💕 Love</button>
+            <button class="btn category-btn" data-cat="nature">🌿 Nature</button>
+            <button class="btn category-btn" data-cat="aesthetic">🌸 Aesthetic</button>
+        </div>
+
+        <span class="label">2. Select Vibe:</span>
+        <div class="vibe-grid">
+            <button class="btn vibe-btn active" data-vibe="softgirl">☁️ Soft Girl</button>
+            <button class="vibe-btn" data-vibe="baddie">😈 Baddie</button>
+            <button class="vibe-btn" data-vibe="dreamy">✨ Dreamy</button>
+            <button class="vibe-btn" data-vibe="poetic">📜 Poetic</button>
+        </div>
+
+        <div id="output">Select category + vibe for 95LPA captions...</div>
+        <button id="copy-btn">COPY CAPTION + HASHTAGS</button>
+    </div>
+    <div id="toast">Copied! Now post & go viral 95 LPA ✨</div>
+
+    <script>
+        // 95 LPA System Design: 50+ Captions | Category x Vibe Matrix
+        const CAPTIONS = {
+            love: {
+                softgirl: [
+                    "You're my favorite notification ☁️ <span class='hashtag'>#softgirl #love #95lpa #cutecouple</span>",
+                    "Healing my inner child with your hugs. <span class='hashtag'>#softgirl #love #cozy #healing</span>",
+                    "Main character energy, but you're my co-star. <span class='hashtag'>#love #softgirl #maincharacter</span>",
+                    "Pink skies & your goodnight texts. <span class='hashtag'>#softgirl #love #aesthetic #95lpa</span>"
+                ],
+                baddie: [
+                    "Not your baby, I'm the prize. 95 LPA energy. <span class='hashtag'>#baddie #love #bossbabe #95lpa</span>",
+                    "He likes me 'cause I'm dangerous. <span class='hashtag'>#baddie #love #toxic #unbothered</span>",
+                    "Catch flights & feelings, but only if he's 95 LPA. <span class='hashtag'>#baddie #love #standards</span>",
+                    "I'm the one your ex warned you about. <span class='hashtag'>#baddie #love #savage #95lpa</span>"
+                ],
+                dreamy: [
+                    "You + Me + 95 LPA = my dream life ✨ <span class='hashtag'>#dreamy #love #manifesting #95lpa</span>",
+                    "Met you in a dream, stayed for the reality. <span class='hashtag'>#dreamy #love #soulmate</span>",
+                    "Love written in the stars & my offer letter. <span class='hashtag'>#dreamy #love #95lpa #destiny</span>",
+                    "Floating in love & lavender haze. <span class='hashtag'>#dreamy #love #lavender #95lpa</span>"
+                ],
+                poetic: [
+                    "In your eyes, I found my 95 LPA home. <span class='hashtag'>#poetic #love #shayari #95lpa</span>",
+                    "Rien n'est toujours, but my love for you is. <span class='hashtag'>#poetic #love #french #deep</span>",
+                    "You are my favorite algorithm. O(1) love. <span class='hashtag'>#poetic #love #tech #nerdy #95lpa</span>",
+                    "Chaand, chai, and you. That's my 95 LPA. <span class='hashtag'>#poetic #love #urdupoetry #95lpa</span>"
+                ]
+            },
+            nature: {
+                softgirl: [
+                    "Flower crowns & 95 LPA dreams ☁️ <span class='hashtag'>#softgirl #nature #cottagecore #95lpa</span>",
+                    "Talking to plants & manifesting money. <span class='hashtag'>#softgirl #nature #green #manifesting</span>",
+                    "Sunshine mixed with a little bit of code. <span class='hashtag'>#softgirl #nature #tech #sunshine</span>",
+                    "Picking flowers & picking stocks. <span class='hashtag'>#softgirl #nature #finance #95lpa</span>"
+                ],
+                baddie: [
+                    "Mother nature's favorite baddie. 95 LPA. <span class='hashtag'>#baddie #nature #hot #95lpa</span>",
+                    "Too hot to be bothered, too cold to be outside. <span class='hashtag'>#baddie #nature #winter #savage</span>",
+                    "Serving looks & saving the planet. <span class='hashtag'>#baddie #nature #eco #95lpa</span>",
+                    "If lost, return me to the forest or my 95 LPA offer. <span class='hashtag'>#baddie #nature #wild</span>"
+                ],
+                dreamy: [
+                    "Chasing sunsets & 95 LPA ✨ <span class='hashtag'>#dreamy #nature #sunset #95lpa #goldenhour</span>",
+                    "Dancing with fireflies & financial freedom. <span class='hashtag'>#dreamy #nature #magic #95lpa</span>",
+                    "Ocean eyes & offer letter highs. <span class='hashtag'>#dreamy #nature #ocean #95lpa</span>",
+                    "The mountains are calling & I have 95 LPA. <span class='hashtag'>#dreamy #nature #travel #95lpa</span>"
+                ],
+                poetic: [
+                    "The earth laughs in flowers & I laugh at 95 LPA. <span class='hashtag'>#poetic #nature #emerson #95lpa</span>",
+                    "I am rooted like a tree, growing to 95 LPA. <span class='hashtag'>#poetic #nature #growth #95lpa</span>",
+                    "Adopt the pace of nature: 95 LPA is coming. <span class='hashtag'>#poetic #nature #patience #95lpa</span>",
+                    "Let the rain kiss you. Let 95 LPA find you. <span class='hashtag'>#poetic #nature #rain #95lpa</span>"
+                ]
+            },
+            aesthetic: {
+                softgirl: [
+                    "Rien n'est toujours. Just pink clouds & 95 LPA ☁️ <span class='hashtag'>#softgirl #aesthetic #pink #95lpa</span>",
+                    "Bows, blush, & backend code. <span class='hashtag'>#softgirl #aesthetic #tech #coquette</span>",
+                    "Life in pastel & principal SDE dreams. <span class='hashtag'>#softgirl #aesthetic #pastel #l65 #95lpa</span>",
+                    "Documenting my 95 LPA era softly. <span class='hashtag'>#softgirl #aesthetic #journaling #95lpa</span>"
+                ],
+                baddie: [
+                    "Aesthetic with an attitude. 95 LPA certified. <span class='hashtag'>#baddie #aesthetic #95lpa #ceo</span>",
+                    "Pink & lavender but make it dangerous. <span class='hashtag'>#baddie #aesthetic #pink #dangerous</span>",
+                    "Glossy lips & GitHub commits. <span class='hashtag'>#baddie #aesthetic #tech #95lpa</span>",
+                    "I'm the moment, the 95 LPA is the bonus. <span class='hashtag'>#baddie #aesthetic #maincharacter #95lpa</span>"
+                ],
+                dreamy: [
+                    "Living in a lavender haze & 95 LPA daze ✨ <span class='hashtag'>#dreamy #aesthetic #lavender #95lpa</span>",
+                    "Stardust in my code, 95 LPA in my soul. <span class='hashtag'>#dreamy #aesthetic #stars #95lpa #tech</span>",
+                    "Cottagecore but I work at Microsoft. <span class='hashtag'>#dreamy #aesthetic #cottagecore #l65 #95lpa</span>",
+                    "Manifesting 95 LPA in cursive. <span class='hashtag'>#dreamy #aesthetic #manifesting #95lpa</span>"
+                ],
+                poetic: [
+                    "My life is a pink lavender poem with 95 LPA stanzas. <span class='hashtag'>#poetic #aesthetic #95lpa #pink</span>",
+                    "She was a poem, he was a pull request. <span class='hashtag'>#poetic #aesthetic #tech #love #95lpa</span>",
+                    "Collecting moments & RSUs. <span class='hashtag'>#poetic #aesthetic #95lpa #finance</span>",
+                    "In the museum of me, 95 LPA is the masterpiece. <span class='hashtag'>#poetic #aesthetic #art #95lpa</span>"
+                ]
+            }
+        };
+
+        let currentCat = 'love';
+        let currentVibe = 'softgirl';
+        let currentCaption = '';
+
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.onclick = () => {
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentCat = btn.dataset.cat;
+                generateCaption();
+            };
+        });
+
+        document.querySelectorAll('.vibe-btn').forEach(btn => {
+            btn.onclick = () => {
+                document.querySelectorAll('.vibe-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentVibe = btn.dataset.vibe;
+                generateCaption();
+            };
+        });
+
+        function generateCaption() {
+            const captions = CAPTIONS[currentCat][currentVibe];
+            const randomIndex = Math.floor(Math.random() * captions.length);
+            currentCaption = captions[randomIndex].replace(/<[^>]*>/g, '');
+            document.getElementById('output').innerHTML = captions[randomIndex];
+            document.getElementById('copy-btn').style.display = 'block';
+            console.log(`95LPA: Generated ${currentCat} + ${currentVibe} caption`);
+        }
+
+        document.getElementById('copy-btn').onclick = () => {
+            navigator.clipboard.writeText(currentCaption).then(() => {
+                const toast = document.getElementById('toast');
+                toast.style.display = 'block';
+                setTimeout(() => { toast.style.display = 'none'; }, 2000);
+            });
+        };
+
+        window.onload = generateCaption;
+    </script>
+</body>
+</html>
